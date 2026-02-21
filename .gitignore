@@ -1,0 +1,11 @@
+# Dados pesados / sensíveis
+*.rds
+*.RData
+*.csv
+*.parquet
+
+# Pastas do RStudio
+.Rproj.user/
+
+# Cache do Quarto
+_quarto/

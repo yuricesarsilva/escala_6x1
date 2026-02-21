@@ -1,0 +1,156 @@
+---
+title: "Redução da jornada de trabalho e  impacto nas atividades econômicas de Roraima" 
+subtitle: "Como o fim da escala 6x1 afeta o custo por hora trabalhada das ocupações regidas pela CLT no estado?" # -----> Subtítulo
+author: "Yuri Cesar de Lima e Silva" # -----> Autoria
+date: "2026-02-20" # -----> Data de publicação
+date-format: short # -----> Formato de data curto: dd/mm/aaaa
+lang: pt # -----> Linguagem: português
+format:
+  html:
+    code-fold: true
+    embed-resources: true
+    theme:
+      light: [pulse, custom.scss]
+      dark:  [cyborg, custom.scss]
+title-block-banner: true
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+# Se o seu código está em um arquivo .R separado:
+source("code_escala_6x1.R")
+
+```
+
+# 1. Contexto
+
+O debate sobre a redução da jornada máxima de trabalho voltou à agenda legislativa nacional com a tramitação de propostas que visam alterar o atual limite constitucional de 44 horas semanais. Em 9 de fevereiro de 2026, o presidente da Câmara dos Deputados, Hugo Motta, encaminhou à Comissão de Constituição e Justiça e de Cidadania (CCJ) a Proposta de Emenda à Constituição nº 8/2025, de autoria da deputada Erika Hilton, que propõe a redução da jornada máxima para 36 horas semanais, medida associada no debate público ao chamado “fim da escala 6x1”. Paralelamente, o noticiário recente tem indicado a consolidação de uma corrente parlamentar que passou a defender uma alternativa intermediária de redução para 40 horas semanais, como forma de viabilizar maior convergência política em torno do tema. A existência simultânea desses dois referenciais (36 e 40 horas) evidencia que o debate legislativo permanece em construção e que diferentes trajetórias de ajuste regulatório são plausíveis. Trata-se, em qualquer cenário, de mudança estrutural na regulação do mercado de trabalho brasileiro e envolve implicações econômicas relevantes tanto para trabalhadores quanto para empresas e para o poder público.
+
+A Nota Técnica nº 123 da Diretoria de Estudos e Políticas Sociais do Ipea (Disoc) sistematizou evidências empíricas recentes sobre o tema, destacando que o principal efeito direto de uma eventual redução da jornada, mantida constante a remuneração nominal, consiste no aumento do custo da hora trabalhada. O estudo mostrou que, em média, a redução do limite para 40 horas implicaria um aumento aproximado de 7,8% no custo médio do trabalho formal celetista no país, enquanto a redução para 36 horas poderia elevar esse custo em cerca de 17,6%. Contudo, a própria Nota Técnica ressalta que esses impactos não são homogêneos entre setores e regiões, sendo fortemente condicionados pela distribuição das jornadas efetivamente praticadas.
+
+Nesse contexto, torna-se essencial avaliar os possíveis efeitos da proposta sob a ótica regional. A estrutura produtiva brasileira é marcada por elevada heterogeneidade territorial, com diferenças significativas na composição setorial, no grau de formalização e na intensidade de uso do fator trabalho. Para estados de menor escala econômica, como Roraima, alterações na regulação da jornada podem produzir efeitos proporcionais distintos dos observados na média nacional, seja pela maior presença de determinados setores, seja pela dinâmica específica de seu mercado de trabalho.
+
+Além disso, o debate contemporâneo sobre jornada de trabalho não pode ser reduzido a uma análise exclusivamente estática de custos. Há uma literatura consolidada que aponta para possíveis efeitos indiretos associados a mudanças regulatórias dessa natureza, incluindo reorganização de escalas, contratações adicionais, ganhos de produtividade, ajustes de preços e, no longo prazo, alterações na estrutura de organização das firmas. Ainda assim, o aumento do custo unitário da hora trabalhada constitui o primeiro e mais imediato canal de impacto, especialmente relevante para empresários, investidores e gestores públicos responsáveis por planejamento fiscal e políticas de desenvolvimento.
+
+Apoiando-se na metodologia sugerida na NT 123 do IPEA, este trabalho tem como objetivo estimar o impacto potencial da redução da jornada máxima de trabalho sobre o custo da hora trabalhada no estado de Roraima, utilizando dados da Pesquisa Nacional por Amostra de Domicílios Contínua (PNAD Contínua) referentes ao quarto trimestre de 2025. A opção por essa base constitui a principal diferença em relação à NT 123, que se fundamenta nos registros administrativos da RAIS e concentra-se nos vínculos celetistas formais, considerando os registros do ano de 2023. Ao empregar a PNAD Contínua, torna-se possível analisar a estrutura das jornadas habituais efetivamente trabalhadas dentro do conjunto de trabalhadores formais com base nas informações mais recentes disponíveis, captando a configuração atual do mercado de trabalho regional. Essa escolha metodológica amplia a capacidade de oferecer uma fotografia atualizada do cenário estadual, particularmente em um período posterior à forte recuperação do emprego observada após a pandemia, assegurando maior aderência entre as estimativas produzidas e a dinâmica recente do ciclo econômico.
+
+A relevância dessa análise para o contexto estadual é dupla. Do ponto de vista empresarial, a estimativa do aumento potencial do custo da hora trabalhada fornece subsídios para planejamento estratégico, revisão de escalas e avaliação de margens. Do ponto de vista do poder público, os resultados permitem antecipar possíveis efeitos sobre arrecadação, estrutura de custos de contratos públicos, demanda por qualificação e eventuais políticas compensatórias direcionadas a setores mais sensíveis.
+
+Importa destacar que o impacto agregado pode ocultar significativa heterogeneidade interna. Setores intensivos em mão de obra contínua, como comércio varejista, transporte, construção e determinadas atividades industriais e agropecuárias, tendem a concentrar jornadas superiores a 40 horas semanais, tornando-se mais expostos ao choque regulatório. Em contrapartida, setores com maior presença de jornadas reduzidas — como parte da educação e de determinados serviços especializados — podem experimentar impacto proporcionalmente menor.
+
+Nesse sentido, a análise regional permite deslocar o debate do plano abstrato e nacional para uma avaliação concreta das condições estruturais do mercado de trabalho de Roraima. Ao quantificar o possível aumento do custo médio do trabalho no estado e identificar os segmentos mais expostos, este estudo busca contribuir para uma discussão baseada em evidências, reduzindo incertezas e qualificando o processo decisório tanto no âmbito empresarial quanto na formulação de políticas públicas.
+
+A seção seguinte apresenta detalhadamente a metodologia adotada, incluindo a definição da população analisada, a construção dos cenários de 40 e 36 horas e o procedimento de estimação do impacto médio ponderado. Na sequência, são apresentados os resultados agregados e setoriais para o estado de Roraima, bem como sua comparação com as demais unidades da federação, culminando com as principais implicações econômicas e considerações finais.
+
+# 2. Metodologia
+
+A presente análise foi conduzida com base nos microdados da Pesquisa Nacional por Amostra de Domicílios Contínua (PNAD Contínua), referentes ao quarto trimestre de 2025. A escolha dessa base decorre de sua abrangência nacional com representatividade estadual e da possibilidade de mensuração da jornada efetivamente trabalhada na semana de referência, o que permite capturar com maior precisão a intensidade real de utilização do fator trabalho. Diferentemente de registros administrativos que informam jornada contratual, a PNAD Contínua fornece informação sobre horas efetivamente trabalhadas, variável particularmente relevante para simulações de choque regulatório sobre jornada máxima.
+
+Os microdados foram processados no ambiente R, utilizando o pacote PNADcIBGE e respeitando integralmente o desenho amostral complexo da pesquisa. Todas as estimativas foram realizadas por meio de procedimentos para amostras complexas (pacote survey), incorporando pesos amostrais, estratificação e conglomerados. Dessa forma, os resultados apresentados constituem projeções estatisticamente consistentes para a população de trabalhadores formais do estado de Roraima.
+
+A amostra foi delimitada aos indivíduos residentes em Roraima classificados como “Pessoas ocupadas” na semana de referência e inseridos em vínculos formais regidos pela Consolidação das Leis do Trabalho (CLT). Foram considerados como formais os empregados do setor privado com carteira assinada, os trabalhadores domésticos com carteira assinada e os empregados do setor público com carteira assinada. Foram excluídos militares, servidores estatutários, empregadores, trabalhadores por conta própria e trabalhadores familiares auxiliares. Essa delimitação metodológica garante que a simulação incida exclusivamente sobre vínculos que seriam diretamente afetados por eventual alteração na jornada legal máxima.
+
+A base final da simulação corresponde a aproximadamente 88,6 mil vínculos formais regidos pela CLT no estado, conforme estimado a partir dos microdados do quarto trimestre de 2025. Esse contingente constitui o universo efetivamente sujeito ao choque regulatório modelado nas simulações subsequentes.
+
+A variável central da análise é a jornada efetivamente trabalhada na semana de referência no trabalho principal (V4039C). Com base nessa variável, os trabalhadores foram classificados em três grupos: jornadas de até 36 horas semanais; jornadas entre 37 e 40 horas semanais; e jornadas de 41 horas ou mais semanais. Essa estratificação permite simular dois cenários alternativos de política pública: (i) redução da jornada máxima para 40 horas semanais; e (ii) redução da jornada máxima para 36 horas semanais.
+
+O impacto econômico foi modelado sob a hipótese de manutenção da remuneração nominal semanal. Nesse contexto, a redução do número máximo de horas implica aumento proporcional do custo unitário da hora trabalhada para os vínculos cuja jornada excede o novo limite. Formalmente, para cada trabalhador $i$, com jornada semanal efetiva $h_i$, o aumento percentual no custo da hora trabalhada foi definido como:
+
+$$
+Impacto_i =
+\begin{cases}
+\left( \dfrac{h_i}{h_{\max}} - 1 \right) \times 100, & \text{se } h_i > h_{\max} \\
+0, & \text{caso contrário}
+\end{cases}
+$$
+em que $h_{max} representa o novo limite máximo de jornada (40 ou 36 horas). No cenário de redução para 40 horas, apenas trabalhadores com jornada igual ou superior a 41 horas são impactados. No cenário de redução para 36 horas, o impacto incide sobre todos aqueles com jornada igual ou superior a 37 horas. Essa construção assegura que apenas vínculos situados acima do novo teto experimentem variação no custo unitário, evitando distorções artificiais.
+
+O impacto médio agregado para o estado foi estimado como a média ponderada do aumento percentual individual do custo da hora trabalhada, considerando os fatores de expansão da PNAD Contínua. Em termos formais, trata-se do estimador:
+
+$$
+\begin{equation}
+Impacto_{\text{médio}} =
+\frac{1}{N}
+\sum_{i=1}^{N}
+w_i \cdot Impacto_i
+\end{equation}
+$$
+
+onde $w_i$ são os pesos amostrais e $N$ representa o total expandido de trabalhadores formais CLT no estado. Esse indicador sintetiza o aumento médio esperado no custo da hora trabalhada caso a alteração regulatória fosse implementada sob as hipóteses adotadas.
+
+Além da estimativa agregada, foi conduzida análise desagregada por atividade econômica do trabalho principal (classificação CNAE – variável V4013). Para cada atividade econômica foram estimados: (i) o total de trabalhadores formais; (ii) a distribuição das jornadas nos três grupos definidos; (iii) o percentual de trabalhadores diretamente afetados em cada cenário; e (iv) o impacto médio ponderado sobre o custo da hora. A apresentação dos resultados setoriais foi restrita às atividades com pelo menos 300 trabalhadores formais estimados, com o objetivo de reduzir instabilidade estatística associada a tamanhos amostrais reduzidos.
+
+Adicionalmente, para contextualização comparativa, o mesmo procedimento foi aplicado ao conjunto das unidades da federação, estimando-se o impacto médio por estado. Essa etapa permite posicionar Roraima no cenário nacional, identificando se sua estrutura de jornadas implica impacto superior, inferior ou alinhado à média brasileira.
+
+Cumpre destacar que a abordagem adotada consiste em uma simulação estática de primeiro impacto. Não foram incorporados efeitos comportamentais ou de segunda ordem, tais como reorganização de escalas, ajustes salariais nominais, variações de produtividade, substituição entre fatores de produção, repasses a preços ou alterações no nível de emprego. Tampouco se modelaram possíveis repercussões sobre informalidade ou dinâmica setorial de médio prazo. Assim, os resultados devem ser interpretados como estimativas da magnitude inicial do choque regulatório sobre o custo unitário do trabalho, mantidas constantes as demais condições.
+
+Apesar dessas limitações inerentes a exercícios contrafactuais dessa natureza, a metodologia empregada permite dimensionar de maneira precisa a ordem de grandeza do impacto esperado e identificar sua distribuição setorial e territorial, fornecendo subsídios técnicos relevantes para a avaliação econômica da proposta.
+
+# 3. Resultados
+
+No quarto trimestre de 2025, o estado de Roraima registrava aproximadamente 302.092 pessoas ocupadas, das quais 166.783 se encontravam em posições formais em sentido amplo e 135.309 na informalidade. Quando se restringe o universo aos vínculos diretamente regidos pela CLT (empregados com carteira assinada no setor privado, no setor público e trabalhadores domésticos formalizados) obtém-se um contingente estimado de 88.568 trabalhadores. Esse grupo representa aproximadamente 29% do total de ocupados no estado e constitui a base efetivamente sujeita ao choque regulatório simulado.
+
+Do total dos trabalhadores formais regidos pela CLT no estado (88.568), os dados da PNAD Contínua mostram que cerca de 50,34% (44.586) exercem jornada superior a 40 horas semanais, sendo, portanto, diretamente afetados no cenário de redução para 40 horas. No cenário de redução para 36 horas semanais, o contingente potencialmente atingido se amplia para aproximadamente 81,86% (72.499) dos vínculos CLT. Esses percentuais permitem dimensionar não apenas a intensidade do choque em termos de custo unitário, mas também sua abrangência estrutural dentro do mercado de trabalho formal estadual.
+
+A estimativa agregada indica que a redução da jornada máxima para 40 horas semanais implicaria aumento médio de 7,99% no custo da hora trabalhada no estado. No cenário de redução para 36 horas, o aumento médio alcançaria 17,95%. Em termos comparativos, tais valores posicionam Roraima muito próximo da média observada nacionalmente, indicando que a distribuição das jornadas no estado não diverge estruturalmente do padrão brasileiro, como pode ser visto nos gráficos 1 e 2. 
+
+```{r}
+#| echo: false
+grafico1
+```
+
+```{r}
+#| echo: false
+grafico2
+```
+
+Embora o aumento médio percentual sintetize a intensidade do choque regulatório, sua tradução em valores monetários permite dimensionar com maior clareza sua relevância econômica. No quarto trimestre de 2025, a massa salarial mensal proveniente do trabalho principal dos vínculos formais regidos pela CLT em Roraima alcançava aproximadamente R\$ 199,3 milhões. Mantida constante a remuneração nominal semanal e preservada a estrutura atual de emprego, o aumento médio estimado de 7,99% no custo da hora trabalhada no cenário de redução para 40 horas implicaria acréscimo potencial da ordem de R\$ 15,8 milhões sobre essa massa salarial. No cenário de redução para 36 horas, o impacto médio de 17,95% representaria aumento aproximado de R\$ 35,3 milhões, magnitude substancialmente superior.
+
+Do ponto de vista econômico, a neutralização integral do aumento médio de 17,95% no custo da hora trabalhada exigiria, mantidas constantes as demais variáveis, ganho médio de produtividade da mesma magnitude entre os vínculos afetados. Em termos práticos, isso significa que a produção por hora trabalhada deveria crescer aproximadamente na mesma proporção do aumento estimado no custo unitário para que não houvesse pressão adicional sobre margens, preços ou nível de emprego.
+
+É importante destacar que essa simulação constitui uma referência de ordem de grandeza sob hipótese estática, não implicando aumento automático da despesa efetiva. O efeito final dependerá dos mecanismos de ajuste adotados pelas empresas — como reorganização de jornadas, contratações adicionais, ganhos de produtividade ou repasses parciais a preços. Ainda assim, os valores estimados indicam que o choque potencial, especialmente no cenário de 36 horas, pode assumir dimensão economicamente relevante no contexto da estrutura produtiva estadual.
+
+No entanto, a média estadual oculta significativa heterogeneidade setorial. A decomposição por atividade econômica, apresentada na Tabela 1, revela que a exposição ao choque varia de forma substancial conforme a estrutura interna das jornadas. Observa-se, inicialmente, que setores com elevada concentração de jornadas iguais ou superiores a 41 horas semanais são os mais impactados já no cenário de redução para 40 horas. Esse é o caso, por exemplo, do comércio de veículos automotores (CNAE 45010), no qual 90,84% dos trabalhadores seriam afetados pela regra das 40 horas, resultando em aumento médio de 12,25% no custo da hora e, sob o cenário de 36 horas, 24,72%. De forma semelhante, a criação de bovinos (CNAE 01201) apresenta 81,85% de trabalhadores afetados no cenário de 40 horas, com aumento médio de 12,29%, elevando-se para 24,77% sob o limite de 36 horas.
+
+```{r}
+#| echo: false
+tabela0
+```
+
+Setores industriais específicos também exibem forte concentração de jornadas longas. A fabricação de produtos de metal (CNAE 25001) e a fabricação de minerais não-metálicos (CNAE 23099) apresentam aumento médio superior a 11% no cenário de 40 horas e acima de 23% no cenário de 36 horas. A impressão e reprodução de gravações (CNAE 18000) e atividades de recreação e lazer (CNAE 93020) registram 100% de trabalhadores afetados já no cenário de 40 horas, com aumento médio de 10% nesse cenário e 22,22% sob a regra de 36 horas.
+
+Entre os setores de maior peso no mercado de trabalho estadual, destacam-se os supermercados e hipermercados (CNAE 48080), que concentram 11.385 trabalhadores formais CLT. Nesse segmento, 71,14% dos trabalhadores seriam afetados pela redução para 40 horas, com aumento médio de 14,18% no custo da hora. No cenário de 36 horas, 85,26% dos trabalhadores seriam impactados, elevando o aumento médio para 25,16%. Trata-se de um choque expressivo em setor altamente intensivo em trabalho e com margens historicamente pressionadas por concorrência.
+
+O comércio varejista de materiais de construção (CNAE 48050) apresenta ainda maior exposição: 83,98% dos trabalhadores seriam afetados no cenário de 40 horas, com aumento médio de 10,68%, e 95,56% no cenário de 36 horas, com aumento médio de 22,06%. No segmento de comércio de produtos farmacêuticos (CNAE 48071), o impacto médio alcança 11,06% no cenário de 40 horas e 21,69% no de 36 horas.
+
+O transporte rodoviário de carga (CNAE 49040) destaca-se por apresentar o maior aumento médio de custo no cenário de 40 horas entre os setores analisados, atingindo 34,42%, e 47,50% no cenário de 36 horas. Esse resultado decorre da elevada proporção de jornadas longas nesse setor e da natureza operacional contínua da atividade. Embora o contingente absoluto de trabalhadores seja menor que no comércio, a intensidade do choque é substancialmente mais elevada.
+
+No setor de serviços especializados para construção (CNAE 43000), 66,10% dos trabalhadores seriam impactados no cenário de 40 horas e 100% no de 36 horas, com aumento médio de 10,77% e 23,08%, respectivamente. A construção de obras de infraestrutura (CNAE 42000) também apresenta forte sensibilidade, com 100% dos trabalhadores afetados sob a regra de 36 horas e aumento médio de 18,05%.
+
+Em contraste, setores como ensino médio (CNAE 85013) e pré-escola e ensino fundamental (CNAE 85012) apresentam impacto nulo no cenário de 40 horas — pois não possuem trabalhadores com jornada acima desse limite — e aumentos relativamente moderados no cenário de 36 horas, em torno de 7% a 8%. Serviços financeiros (CNAE 64000) e consultoria em gestão empresarial (CNAE 70000) também exibem impacto inexistente no cenário de 40 horas e inferior a 7% no cenário de 36 horas.
+
+Esses resultados indicam três padrões distintos: (i) setores intensivos em jornadas longas e fortemente impactados já no limite de 40 horas; (ii) setores moderadamente expostos, cujo impacto se amplia substancialmente apenas no cenário de 36 horas; e (iii) setores pouco expostos, onde a jornada média já se encontra abaixo do novo limite proposto.
+
+Do ponto de vista econômico, a neutralização integral do aumento médio de 17,95% no custo da hora trabalhada exigiria, mantidas constantes as demais variáveis, ganho médio de produtividade da mesma magnitude entre os vínculos afetados. Em termos práticos, isso significa que a produção por hora trabalhada deveria crescer aproximadamente na mesma proporção do aumento estimado no custo unitário para que não houvesse pressão adicional sobre margens, preços ou nível de emprego. Trata-se de condição necessária para neutralização do choque sob hipótese de preços e margens constantes.
+
+Assim, embora o impacto médio estadual de 7,99% e 17,95% ofereça uma síntese útil, a realidade setorial revela variações que, em alguns segmentos, superam 30% no cenário de 36 horas. Essa dispersão indica que a política produziria efeitos assimétricos, exigindo capacidade diferenciada de ajuste entre atividades econômicas.
+
+# 4. Conclusão
+
+Os resultados apresentados permitem dimensionar, com base empírica recente, a magnitude potencial do impacto da redução da jornada máxima de trabalho sobre o custo unitário do fator trabalho em Roraima. A simulação indica que, mantida constante a remuneração nominal, o custo médio da hora trabalhada entre vínculos formais regidos pela CLT aumentaria aproximadamente 7,99% no cenário de redução para 40 horas e 17,95% no cenário de redução para 36 horas semanais.
+
+Em termos agregados, Roraima posiciona-se muito próximo da média nacional estimada em estudos semelhantes. Isso sugere que a estrutura de jornadas praticadas no estado não apresenta desvio significativo em relação ao padrão brasileiro. Assim, sob a ótica estritamente quantitativa, não se observa evidência de que o estado enfrentaria impacto desproporcional quando comparado às demais unidades da federação.
+
+Entretanto, a análise setorial revela que o efeito não seria uniforme. Atividades intensivas em jornadas superiores a 40 horas — notadamente comércio varejista, supermercados, transporte, construção civil, segmentos industriais específicos e parte da agropecuária — tenderiam a experimentar aumentos médios mais elevados no custo unitário da hora trabalhada. Em contraste, setores com maior prevalência de jornadas reduzidas apresentariam impacto relativamente menor. Essa heterogeneidade implica que o eventual ajuste econômico decorrente da medida não se distribuiria de forma homogênea na economia estadual.
+
+A comparação com o recente reajuste do salário mínimo em 2026 evidencia que, ao menos no cenário de redução para 36 horas, o choque estimado sobre o custo da hora trabalhada é superior ao impacto médio observado com o aumento do piso salarial. Contudo, a natureza dos dois choques é distinta. O reajuste do salário mínimo afeta diretamente a base salarial de trabalhadores situados nas faixas inferiores da distribuição de rendimentos e pode gerar efeitos de transbordamento sobre salários próximos ao piso. Já a redução da jornada altera a relação entre salário semanal e número de horas trabalhadas, incidindo apenas sobre vínculos com jornadas acima do novo limite. Assim, embora o impacto percentual possa ser mais intenso, sua abrangência estrutural tende a ser mais concentrada. O salário mínimo afeta principalmente a base da distribuição salarial. A redução da jornada, por sua vez, incide sobre vínculos independentemente do nível salarial, desde que a jornada ultrapasse o novo limite estabelecido.
+
+É igualmente importante reconhecer que esta análise constitui uma simulação estática de primeiro impacto. O aumento estimado no custo unitário da hora trabalhada não implica, de forma automática, redução de emprego ou retração de atividade econômica. A literatura econômica sugere múltiplos canais de ajuste possíveis, incluindo reorganização de escalas, contratação adicional para recompor horas suprimidas, ganhos de produtividade, redução de margens ou repasse parcial a preços. A intensidade de cada mecanismo dependerá das características específicas de cada setor, do grau de concorrência, da elasticidade de demanda e do ambiente macroeconômico vigente.
+
+Para empresários, os resultados oferecem subsídios quantitativos para planejamento estratégico e avaliação de cenários. Setores com elevada concentração de jornadas longas devem antecipar maior necessidade de reestruturação organizacional caso a mudança regulatória seja implementada. Para formuladores de políticas públicas, os achados reforçam a importância de avaliar eventuais mecanismos de transição ou medidas mitigadoras direcionadas a segmentos mais expostos, sobretudo em economias estaduais de menor escala e menor diversificação produtiva.
+
+Em síntese, a eventual redução da jornada máxima de trabalho implicaria aumento não trivial no custo unitário do trabalho formal em Roraima, com magnitude agregada alinhada ao padrão nacional, mas com efeitos setoriais diferenciados. O debate público sobre a proposta deve, portanto, considerar não apenas a média estadual ou nacional, mas também a distribuição interna do impacto e os mecanismos de ajuste econômico disponíveis.
+
+A principal contribuição deste estudo é oferecer uma estimativa regionalizada, baseada em dados recentes e metodologia transparente, que permita qualificar a discussão com evidências empíricas. A decisão sobre a política envolve escolhas sociais e distributivas que transcendem a dimensão puramente econômica; contudo, qualquer decisão informada requer compreensão clara da ordem de grandeza dos efeitos esperados — objetivo que esta Nota Técnica buscou atender.

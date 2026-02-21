@@ -1,0 +1,25 @@
+/*-- scss:rules --*/
+
+/* Justificar texto */
+p {
+  text-align: justify;
+}
+
+/* Banner do bloco de título */
+.quarto-title-block .quarto-title-banner {
+  background: #000 !important;
+  color: #fff !important;
+}
+
+/* Garante que título/subtítulo/autor/data fiquem brancos */
+.quarto-title-block .quarto-title-banner h1,
+.quarto-title-block .quarto-title-banner .subtitle,
+.quarto-title-block .quarto-title-banner .quarto-title-meta,
+.quarto-title-block .quarto-title-banner a {
+  color: #fff !important;
+}
+
+/* Opcional: links no banner */
+.quarto-title-block .quarto-title-banner a:hover {
+  opacity: 0.9;
+}
