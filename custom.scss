@@ -32,16 +32,35 @@ p {
   position: relative;
 }
 
+
 .quarto-title-banner::before {
   content: "";
   position: absolute;
-  top: 20px;
-  right: 40px;
-  width: 500px;
-  height: 500px;
-  background-image: url("vetra.png");
+
+  /* MAIS ACIMA */
+  top: clamp(5px, 1vw, 12px);
+  right: clamp(20px, 3vw, 60px);
+
+  /* MEIO TERMO DE TAMANHO */
+  width: clamp(160px, 18vw, 300px);
+  height: clamp(160px, 18vw, 300px);
+
+  background-image: url(vetra.png);
   background-size: contain;
   background-repeat: no-repeat;
+  background-position: top center;
+}
+
+
+@media (min-width: 1200px){
+  .quarto-title-banner::before{
+    width: 420px;
+    height: 420px;
+  }
+}
+
+.quarto-title-banner {
+  padding-right: clamp(160px, 26vw, 450px);
 }
 
 /* Remove o “cartão” cinza do logo no banner */
