@@ -429,11 +429,11 @@ grafico1<-ggplot(grafico_base,
            fill = destaque)) +
   geom_col() +
   geom_text(aes(label = sprintf("%.2f", Impacto_40)),
-            hjust = -0.15,
+            hjust = -0.05,
             size = 2.5) +
   coord_flip() +
-  scale_fill_manual(values = c("RR" = "#7ba05b",
-                               "Outros" = "#1f3e59"),
+  scale_fill_manual(values = c("RR" = "darkorange",
+                               "Outros" = "black"),
                     guide = "none") +
   labs(
     title = "Gráfico 1 - Impacto médio da redução para 40h por UF",
@@ -478,11 +478,11 @@ grafico2<-ggplot(grafico_base36,
            fill = destaque)) +
   geom_col() +
   geom_text(aes(label = sprintf("%.2f", Impacto_36)),
-            hjust = -0.15,
+            hjust = -0.05,
             size = 2.5) +
   coord_flip() +
-  scale_fill_manual(values = c("RR" = "#7ba05b",
-                               "Outros" = "#1f3e59"),
+  scale_fill_manual(values = c("RR" = "darkorange",
+                               "Outros" = "black"),
                     guide = "none") +
   labs(
     title = "Gráfico 2 - Impacto médio da redução para 36h por UF",

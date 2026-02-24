@@ -1,10 +1,21 @@
 ---
 title: "Redução da jornada de trabalho e  impacto nas atividades econômicas de Roraima" 
 subtitle: "Como o fim da escala 6x1 afeta o custo por hora trabalhada das ocupações regidas pela CLT no estado?" # -----> Subtítulo
-author: "Yuri Cesar de Lima e Silva" # -----> Autoria
-date: "2026-02-20" # -----> Data de publicação
+#author: "Yuri Cesar de Lima e Silva" # -----> Autoria
+author["testa"]:
+  - name: "Yuri Cesar de Lima e Silva"
+    affiliation: "Vetra Consultoria"
+    affiliation-logo: vetra.jpeg
+    url: "https://sites.google.com/view/yuricesar"
+    corresponding: true
+date: "2026-02-24" # -----> Data de publicação
 date-format: short # -----> Formato de data curto: dd/mm/aaaa
 lang: pt # -----> Linguagem: português
+
+title-block-banner: true
+title-block-logo: vetra.png
+title-block-logo-alt: "Vetra Consultoria"
+
 format:
   html:
     code-fold: true
@@ -12,7 +23,6 @@ format:
     theme:
       light: [pulse, custom.scss]
       dark:  [cyborg, custom.scss]
-title-block-banner: true
 ---
 
 ```{r}

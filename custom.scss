@@ -23,3 +23,36 @@ p {
 .quarto-title-block .quarto-title-banner a:hover {
   opacity: 0.9;
 }
+
+.quarto-title-meta-heading {
+  font-variant: small-caps;
+}
+
+.quarto-title-banner {
+  position: relative;
+}
+
+.quarto-title-banner::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  width: 500px;
+  height: 500px;
+  background-image: url("vetra.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Remove o “cartão” cinza do logo no banner */
+.quarto-title-banner .quarto-title-logo,
+.quarto-title-banner .quarto-title-logo * {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Opcional: zera padding/margem do bloco do logo */
+.quarto-title-banner .quarto-title-logo {
+  padding: 0 !important;
+  margin: 0 !important;
+}
