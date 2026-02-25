@@ -256,6 +256,116 @@ colnames(base_formais) <- c("CNAE","Atividades Econômicas","36menos","37a40","4
 
 base_formais <- base_formais[order(base_formais$`Total`, decreasing = TRUE), ]
 
+############################################
+# Tabela Final
+############################################
+
+tabela_final <- base_formais %>%
+  filter(Total >= 300) %>%
+  arrange(desc(Total)) %>%
+  gt() %>%
+  
+  # ---- Cabeçalho (mais limpo) ----
+tab_header(
+  title = md("**Tabela 1 – Impacto do fim da escala 6x1 em Roraima (empregos CLT)**"),
+  subtitle = md("Por atividade econômica (CNAE) com **300 ou mais** empregados")
+) %>%
+  
+  # ---- Rótulos curtos (ganha muito em estética) ----
+cols_label(
+  CNAE = "CNAE",
+  `Atividades Econômicas` = "Atividade econômica",
+  `36menos` = "≤ 36h",
+  `37a40`   = "37–40h",
+  `41mais`  = "≥ 41h",
+  Total     = "Total",
+  `% afetados (40h)` = "% afetados (40h)",
+  `% afetados (36h)` = "% afetados (36h)",
+  `Impacto 40h` = "Impacto (40h)",
+  `Impacto 36h` = "Impacto (36h)"
+) %>%
+  
+  # ---- Agrupamento por blocos (spanners) ----
+tab_spanner(
+  label = "Estrutura da jornada",
+  columns = c(`36menos`, `37a40`, `41mais`, Total)
+) %>%
+  tab_spanner(
+    label = "Trabalhadores afetados",
+    columns = c(`% afetados (40h)`, `% afetados (36h)`)
+  ) %>%
+  tab_spanner(
+    label = "Aumento médio do custo por hora (%)",
+    columns = c(`Impacto 40h`, `Impacto 36h`)
+  ) %>%
+  
+  # ---- Formatação numérica ----
+fmt_number(columns = c(`36menos`, `37a40`, `41mais`, Total),
+           decimals = 0, locale = "pt_BR") %>%
+  fmt_number(columns = c(`% afetados (40h)`, `% afetados (36h)`,
+                         `Impacto 40h`, `Impacto 36h`),
+             decimals = 2, locale = "pt_BR") %>%
+  
+  # ---- Alinhamentos (texto à esquerda, números à direita) ----
+cols_align(align = "left", columns = `Atividades Econômicas`) %>%
+  cols_align(align = "center", columns = CNAE) %>%
+  cols_align(
+    align = "center",
+    columns = c(`36menos`, `37a40`, `41mais`, Total,
+                `% afetados (40h)`, `% afetados (36h)`,
+                `Impacto 40h`, `Impacto 36h`)
+  ) %>%
+  
+  # ---- Realces visuais (sem “poluir”) ----
+opt_row_striping() %>%
+  
+  # Destaque no Total (coluna-chave)
+  tab_style(
+    style = list(cell_text(weight = "bold")),
+    locations = cells_body(columns = Total)
+  ) %>%
+  
+  # Barras sutis nas colunas percentuais/impactos (melhora MUITO leitura em HTML)
+  data_color(
+    columns = c(`% afetados (40h)`, `% afetados (36h)`, `Impacto 40h`, `Impacto 36h`),
+    method = "numeric",
+    palette = c("#F5F5F5", "#BDBDBD")
+  ) %>%
+  
+  # ---- Divisórias discretas entre blocos ----
+tab_style(
+  style = cell_borders(sides = "right", color = "#D9D9D9", weight = px(1)),
+  locations = cells_body(columns = Total)
+) %>%
+  tab_style(
+    style = cell_borders(sides = "right", color = "#D9D9D9", weight = px(1)),
+    locations = cells_column_labels(columns = Total)
+  ) %>%
+  
+  # ---- Opções gerais de “cara de relatório” ----
+tab_options(
+  table.font.size = px(12),
+  data_row.padding = px(4),
+  column_labels.font.size = px(12),
+  heading.title.font.size = px(14),
+  heading.subtitle.font.size = px(12),
+  column_labels.border.bottom.width = px(1),
+  table.border.top.width = px(1),
+  table.border.bottom.width = px(1)
+) %>%
+  
+  # ---- Nota (opcional) ----
+tab_source_note(
+  source_note = md("**Fonte:** PNAD Contínua (microdados). Elaboração própria.")
+)
+
+#################################
+# Outras tabelas
+#################################
+
+
+
+
 
 tabela0<-base_formais %>%
   dplyr::filter(Total >= 300) %>%

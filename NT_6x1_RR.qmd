@@ -126,7 +126,7 @@ No entanto, a média estadual oculta significativa heterogeneidade setorial. A d
 
 ```{r}
 #| echo: false
-tabela0
+tabela_final
 ```
 
 Setores industriais específicos também exibem forte concentração de jornadas longas. A fabricação de produtos de metal (CNAE 25001) e a fabricação de minerais não-metálicos (CNAE 23099) apresentam aumento médio superior a 11% no cenário de 40 horas e acima de 23% no cenário de 36 horas. A impressão e reprodução de gravações (CNAE 18000) e atividades de recreação e lazer (CNAE 93020) registram 100% de trabalhadores afetados já no cenário de 40 horas, com aumento médio de 10% nesse cenário e 22,22% sob a regra de 36 horas.
