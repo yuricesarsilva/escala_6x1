@@ -39,7 +39,7 @@ p {
 
   /* MAIS ACIMA */
   top: clamp(5px, 1vw, 12px);
-  right: clamp(20px, 3vw, 60px);
+  right: clamp(-25px, 1vw, 30px);
 
   /* MEIO TERMO DE TAMANHO */
   width: clamp(160px, 18vw, 300px);
@@ -60,7 +60,7 @@ p {
 }
 
 .quarto-title-banner {
-  padding-right: clamp(160px, 26vw, 450px);
+  padding-right: clamp(160px, 10vw, 300px);
 }
 
 /* Remove o “cartão” cinza do logo no banner */

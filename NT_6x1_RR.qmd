@@ -75,7 +75,7 @@ Impacto_i =
 0, & \text{caso contrário}
 \end{cases}
 $$
-em que $h_{max} representa o novo limite máximo de jornada (40 ou 36 horas). No cenário de redução para 40 horas, apenas trabalhadores com jornada igual ou superior a 41 horas são impactados. No cenário de redução para 36 horas, o impacto incide sobre todos aqueles com jornada igual ou superior a 37 horas. Essa construção assegura que apenas vínculos situados acima do novo teto experimentem variação no custo unitário, evitando distorções artificiais.
+em que $h_{max}$ representa o novo limite máximo de jornada (40 ou 36 horas). No cenário de redução para 40 horas, apenas trabalhadores com jornada igual ou superior a 41 horas são impactados. No cenário de redução para 36 horas, o impacto incide sobre todos aqueles com jornada igual ou superior a 37 horas. Essa construção assegura que apenas vínculos situados acima do novo teto experimentem variação no custo unitário, evitando distorções artificiais.
 
 O impacto médio agregado para o estado foi estimado como a média ponderada do aumento percentual individual do custo da hora trabalhada, considerando os fatores de expansão da PNAD Contínua. Em termos formais, trata-se do estimador:
 
